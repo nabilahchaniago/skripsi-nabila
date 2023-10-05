@@ -1,3 +1,9 @@
+
+/* Untuk debugging atau melihat struktur layout html */
+/* * {
+    outline: red solid 1px;
+}  */
+
 html {
     background: #fcc100;
     color: rgb(0, 0, 0);
@@ -68,6 +74,9 @@ h1 {
 
 .slashed {
     display: flex;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: 500;
     align-items: center;
 }
 
@@ -322,4 +331,22 @@ input:checked+.slider:before {
 
 div[hidden="true"] {
     display: inherit;
+}
+
+.humidity {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    justify-content: end;
+    display: flex;
+    flex-direction: row;
+}
+
+.thermometer {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    justify-content: start;
+    display: flex;
+    flex-direction: row;
 }

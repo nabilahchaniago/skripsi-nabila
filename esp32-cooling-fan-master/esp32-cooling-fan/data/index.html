@@ -213,20 +213,22 @@
             <div class="leftSide">
 
                 <div class="labeledControl">
-                    <i class="fas fa-thermometer-half fa-5x"></i></p>
-                    <div class="slashed">
-                        <div><span class="value" id="tempC">20</span><span class="units">&deg;C</span></div>
+                    <div class="thermometer">
+                        <i class="fas fa-thermometer-half fa-5x"></i></p>
+                        <div class="slashed">
+                            <div><span class="value" id="tempC">20</span><span class="units">&deg;C</span></div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="labeledControl">
-                    <div><span class="value" id="humidity">16</span><span class="units">%</span></div>
-                    <i class="fas fa-tint large-icon fa-5x"></i>
+                    <div class="humidity">
+                        <div class="slashed">
+                            <div><span class="value text-humidity" id="humidity">16</span><span class="units">%</span></div>
+                        </div>
+                        <i class="fas fa-tint large-icon fa-5x"></i>
+                    </div>
                 </div>
-            </div>
-
-            <div class="fanRPM">
-                <canvas id="meterCanvas" width="250" height="250"></canvas>
             </div>
         </div>
 
