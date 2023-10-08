@@ -2,47 +2,52 @@
 
 <head>
     <title>HONEY DEHUMIDIFICATION CONTROL</title>
-
+    <!-- Bagian bawah ini gunanya untuk informasi SEO -->
     <meta name="viewport" content="width=device-width,initial-scale=1">
-
-    <link data-react-helmet="true" rel="preload" as="style"
-        href="https://fonts.googleapis.com/css?family=Dosis:300,500,700|Solway:300,700&amp;display=swap">
-    <link data-react-helmet="true"
-        href="https://fonts.googleapis.com/css?family=Dosis:300,500,700|Solway:300,700&amp;display=swap"
-        rel="stylesheet">
+    <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Dosis:300,500,700|Solway:300,700&amp;display=swap">
+    <link data-react-helmet="true" href="https://fonts.googleapis.com/css?family=Dosis:300,500,700|Solway:300,700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-
+    <!-- Script pada pengembangan web ada 2: yang dipanggil secara external dan internal -->
+    
+    <!-- Script ini termasuk external, fungsinya untuk memanggil codingan Javascript yang ada di file dash-meter.js -->
     <script language="javascript" src="dash-meter.js"></script>
-
+    <!-- Sedangkan script ini langsung melakukan codingan di dalam file html maka dilakukan secara internal -->
     <script language="javascript" type="text/javascript">
+        // Fungsi atau method onWindowResize() digunakan untuk mengatur ukuran dari tampilan web
         function onWindowResize() {
+            // Fungsi atau method getPaddingLeft() digunakan untuk mengatur ukuran padding kiri dari tampilan web
+            function getPaddingLeft(element) {
+                let px = window
+                    .getComputedStyle(content, null)
+                    .getPropertyValue("padding-left");
+                let nopx = px.substring(0, px.length - 2);
+                return parseInt(nopx);
+            }
+            // Fungsi atau method getPaddingRight() digunakan untuk mengatur ukuran padding kanan dari tampilan web
+            function getPaddingRight(element) {
+                let px = window
+                    .getComputedStyle(content, null)
+                    .getPropertyValue("padding-right");
+                let nopx = px.substring(0, px.length - 2);
+                return parseInt(nopx);
+            }
 
-
-        function getPaddingLeft(element) {
-            let px = window
-                .getComputedStyle(content, null)
-                .getPropertyValue("padding-left");
-            let nopx = px.substring(0, px.length - 2);
-            return parseInt(nopx);
-        }
-
-        function getPaddingRight(element) {
-            let px = window
-                .getComputedStyle(content, null)
-                .getPropertyValue("padding-right");
-            let nopx = px.substring(0, px.length - 2);
-            return parseInt(nopx);
-        }
-
-        
+            // Fungsi atau method onWindowResize() digunakan untuk mengatur ukuran dari tampilan web
             onWindowResize();
 
+            // Membuat variabel ourURL yang berisi window.location.href
+            // window.location.href adalah URL dari halaman web yang sedang dibuka
             ourURL = window.location.href;
+
             // console.log("ourURL = " + ourURL);
+
+            // Membuat variabel chop yang berisi 0
             chop = 0;
+
+            // Membuat kondisi if else untuk mengecek apakah ourURL berisi http atau https selain itu maka akan menampilkan error
             if (ourURL.startsWith("http://")) {
                 chop = 7;
             } else if (ourURL.startsWith("https://")) {
@@ -72,13 +77,13 @@
             pwmMouseDown = false;
         }
 
-        // Call this to connect to the WebSocket server
+        // Fungsi atau method wsConnect() digunakan untuk menghubungkan web dengan server
         function wsConnect(url) {
-
-            // Connect to WebSocket server
+            // variabel websocket berisi WebSocket(url)
+            // WebSocket(url) adalah URL dari halaman web yang sedang dibuka
             websocket = new WebSocket(url);
 
-            // Assign callbacks
+            // variabel dibawah ini digunakan untuk mengatur fungsi dari websocket
             websocket.onopen = function (evt) { onOpen(evt) };
             websocket.onclose = function (evt) { onClose(evt) };
             websocket.onmessage = function (evt) { onMessage(evt) };
@@ -224,7 +229,8 @@
                 <div class="labeledControl">
                     <div class="humidity">
                         <div class="slashed">
-                            <div><span class="value text-humidity" id="humidity">16</span><span class="units">%</span></div>
+                            <div><span class="value text-humidity" id="humidity">16</span><span class="units">%</span>
+                            </div>
                         </div>
                         <i class="fas fa-tint large-icon fa-5x"></i>
                     </div>
@@ -266,7 +272,7 @@
                 </div>
             </div>
 
-            
+
         </div>
 
     </div>
