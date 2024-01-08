@@ -52,6 +52,7 @@
                 document.getElementById('error').innerHTML = "<font color=\"red\">!! NO HOST !!</font>";
             }
 
+            // Mengatur kondisi jika ada koneksi ke webscocket, jika berhasil maka akan mendapatkan alamat dari websocket alat
             if (chop != 0) {
                 tmp = ourURL.slice(chop);
                 if ((idx = tmp.indexOf("/")) != -1) {
@@ -75,21 +76,23 @@
         // Call this to connect to the WebSocket server
         function wsConnect(url) {
 
-            // Connect to WebSocket server
+            // Membuat variabel websocket yang berisikan alamat url dari alat
             websocket = new WebSocket(url);
 
+            
             // Assign callbacks
-            websocket.onopen = function (evt) { onOpen(evt) };
-            websocket.onclose = function (evt) { onClose(evt) };
-            websocket.onmessage = function (evt) { onMessage(evt) };
-            websocket.onerror = function (evt) { onError(evt) };
+            // Kata Kunci: Koneksi, Websocket, Server, Alat
+            websocket.onopen = function (evt) { onOpen(evt) }; // Ketika koneksi terbuka atau sedang berlangsung antara alat dan website
+            websocket.onclose = function (evt) { onClose(evt) }; // Ketika koneksi sudah selesai atau tertutup antara alat dan website
+            websocket.onmessage = function (evt) { onMessage(evt) }; // Ketika menampilkan pesan atau message pada saat alat dan website terkoneksi
+            websocket.onerror = function (evt) { onError(evt) }; // Ketika terjadi error pada saat koneksi antar alat dan web
         }
 
         // Called when a WebSocket connection is established with the server
         function onOpen(evt) {
 
             // Log connection state
-            // console.log("Connected");
+            console.log("Connected");
 
             // // Get the current state of ??
             // doSend("get??State");
